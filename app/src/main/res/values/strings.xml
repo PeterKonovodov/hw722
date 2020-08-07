@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">hw722</string>
+    <string name="phone_number_title">Номер телефона</string>
+    <string name="sms_text_title">Текст СМС</string>
+    <string name="my_number">+70057645321</string>
+    <string name="sms_text_default">hello!</string>
+    <string name="sms_btn_title">отправить СМС</string>
+    <string name="call_btn_title">голосовой вызов</string>
+    <string name="sms_sent">СМС отправлено!</string>
+    <string name="no_permission">Разрешение отсутствует!</string>
+</resources>

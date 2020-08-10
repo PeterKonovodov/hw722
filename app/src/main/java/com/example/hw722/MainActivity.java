@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case REQUEST_CODE_PERMISSION_SEND_SMS:
+            case REQUEST_READ_PHONE_STATE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     sendSms();
                 } else {
@@ -106,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
     }
 
+
+    //SmsManager рушится при отсутствии разрешения READ_PHONE_STATE. Почему?
     public void sendSms() {
         try {
             SmsManager smgr = SmsManager.getDefault();

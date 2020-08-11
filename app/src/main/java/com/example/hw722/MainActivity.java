@@ -108,26 +108,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //SmsManager рушится при отсутствии разрешения READ_PHONE_STATE. Почему?
     public void sendSms() {
-        try {
-            SmsManager smgr = SmsManager.getDefault();
-            smgr.sendTextMessage(editTextPhoneNumber.getText().toString(), null, editTextSms.getText().toString(), null, null);
-            Toast.makeText(this, getString(R.string.sms_sent), Toast.LENGTH_SHORT).show();
-            return;
-        } catch (Exception e) {
-            Toast.makeText(this, "Exception!!!", Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "Exception!!!");
-            if (e.toString().contains(Manifest.permission.READ_PHONE_STATE) && ContextCompat
-                    .checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)!=
-                    PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission
-                        .READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
-                return;
-            }
-        }
-
-
+        SmsManager smgr = SmsManager.getDefault();
+        smgr.sendTextMessage(editTextPhoneNumber.getText().toString(), null, editTextSms.getText().toString(), null, null);
+        Toast.makeText(this, getString(R.string.sms_sent), Toast.LENGTH_SHORT).show();
     }
 
 
